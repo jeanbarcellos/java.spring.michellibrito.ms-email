@@ -11,3 +11,4 @@ Instrutor:
 Referências:
 
 - https://www.youtube.com/watch?v=ZBleZzJf6ro
+- https://github.com/MichelliBrito/ms-email
