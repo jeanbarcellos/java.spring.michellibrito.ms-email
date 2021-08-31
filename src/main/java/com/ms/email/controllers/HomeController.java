@@ -1,4 +1,4 @@
-package com.example.demo.controllers;
+package com.ms.email.controllers;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
