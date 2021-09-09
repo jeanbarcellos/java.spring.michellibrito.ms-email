@@ -12,3 +12,4 @@ Referências:
 
 - https://www.youtube.com/watch?v=ZBleZzJf6ro
 - https://github.com/MichelliBrito/ms-email
+- https://www.youtube.com/watch?v=V-PqR0BxA8c
