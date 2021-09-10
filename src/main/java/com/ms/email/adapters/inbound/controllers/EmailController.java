@@ -1,8 +1,9 @@
-package com.ms.email.controllers;
+package com.ms.email.adapters.inbound.controllers;
 
-import com.ms.email.dtos.EmailDto;
-import com.ms.email.models.EmailModel;
-import com.ms.email.services.EmailService;
+import com.ms.email.adapters.inbound.dtos.EmailDto;
+import com.ms.email.application.entities.EmailModel;
+import com.ms.email.application.services.EmailServiceImpl;
+
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -22,7 +23,7 @@ import javax.validation.Valid;
 public class EmailController {
 
     @Autowired
-    EmailService emailService;
+    EmailServiceImpl emailService;
 
     @PostMapping("/send-email")
     public ResponseEntity<EmailModel> sendingEmail(@RequestBody @Valid EmailDto emailDto) {

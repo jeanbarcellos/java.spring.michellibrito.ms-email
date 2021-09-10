@@ -1,9 +1,11 @@
-package com.ms.email.models;
+package com.ms.email.application.entities;
 
-import com.ms.email.enums.StatusEmail;
 import lombok.Data;
 
 import javax.persistence.*;
+
+import com.ms.email.application.entities.enums.StatusEmail;
+
 import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.UUID;

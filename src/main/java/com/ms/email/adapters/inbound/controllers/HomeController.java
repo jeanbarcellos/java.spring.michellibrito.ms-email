@@ -1,4 +1,4 @@
-package com.ms.email.controllers;
+package com.ms.email.adapters.inbound.controllers;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
