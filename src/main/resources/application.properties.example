@@ -2,9 +2,9 @@
 server.port=8080
 
 # Banco de dados
-spring.datasource.url= jdbc:postgresql://localhost:5433/java_spring_demo
-spring.datasource.username=postgres
-spring.datasource.password=postgres
+database.config.url= jdbc:postgresql://localhost:5433/java_spring_msemail
+database.config.username=postgres
+database.config.password=********
 spring.jpa.hibernate.ddl-auto=update
 
 # Envio de e-mail
@@ -14,3 +14,7 @@ spring.mail.username=********@gmail.com
 spring.mail.password=******************
 spring.mail.properties.mail.smtp.auth=true
 spring.mail.properties.mail.smtp.starttls.enable=true
+
+# RabbitMQ
+rabbitmq.uri= amqp://guest:guest@localhost
+spring.rabbitmq.queue=ms.email
