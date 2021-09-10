@@ -22,17 +22,59 @@ Referências:
 
 ## Anotações
 
-Spring Initializr
+**Spring Initializr**
 
--  https://start.spring.io/
+- https://start.spring.io/
 
-Json para envio de e-mail
+**Endpoints**
+
+- Enviar e-mail
+
+  ```
+  [POST] http://localhost:8080/send-email
+  ```
+
+  Body
+
+  ```json
+  {
+    "emailFrom": "email.remetente@gmail.com",
+    "emailTo": "email.destinatário@hotmail.com",
+    "subject": "Teste envio de e-mail via REST usando Spring",
+    "text": "Olá, fulano.\nEste é apenas um teste de envio de e-mail via REST!"
+  }
+  ```
+
+- Listar e-mails
+
+  ```
+  [GET] http://localhost:8080/emails
+  ```
+
+- Detalhes de um e-mail
+
+  ```
+  [GET] http://localhost:8080/emails/{{emailId}}
+  ```
+
+**Json para envio de e-mail via REST**
 
 ```json
 {
   "emailFrom": "**************@gmail.com",
   "emailTo": "**************@hotmail.com",
-  "subject": "Teste de envio de e-mail usando Spring",
-  "text": "Olá, Fulano de tal.\nEste é apenas um teste!"
+  "subject": "Teste envio de e-mail via REST usando Spring",
+  "text": "Olá, fulano.\nEste é apenas um teste de envio de e-mail via REST!"
+}
+```
+
+**Json para envio de e-mail VIA FILA**
+
+```json
+{
+  "emailFrom": "**************@gmail.com",
+  "emailTo": "**************@hotmail.com",
+  "subject": "Teste envio de e-mail via QUEUE usando Spring",
+  "text": "Olá, fulano.\nEste é apenas um teste de envio de e-mail via QUEUE!"
 }
 ```
