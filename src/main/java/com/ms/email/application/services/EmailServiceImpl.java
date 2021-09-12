@@ -15,10 +15,13 @@ import java.util.UUID;
 public class EmailServiceImpl implements EmailServicePort {
 
     private final EmailRepositoryPort emailRepositoryPort;
+
     private final SendEmailServicePort sendEmailServicePort;
 
-    public EmailServiceImpl(final EmailRepositoryPort emailRepositoryPort,
-            final SendEmailServicePort sendEmailServicePort) {
+    public EmailServiceImpl(
+        final EmailRepositoryPort emailRepositoryPort,
+        final SendEmailServicePort sendEmailServicePort
+    ) {
         this.emailRepositoryPort = emailRepositoryPort;
         this.sendEmailServicePort = sendEmailServicePort;
     }
@@ -26,6 +29,7 @@ public class EmailServiceImpl implements EmailServicePort {
     @Override
     public Email sendEmail(Email email) {
         email.setSendDateEmail(LocalDateTime.now());
+
         try {
             sendEmailServicePort.sendEmailSmtp(email);
 

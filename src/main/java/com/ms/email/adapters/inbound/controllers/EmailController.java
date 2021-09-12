@@ -27,21 +27,24 @@ public class EmailController {
     public ResponseEntity<Email> sendingEmail(@RequestBody @Valid EmailDto emailDto) {
         Email email = new Email();
         BeanUtils.copyProperties(emailDto, email);
+
         return new ResponseEntity<>(emailServicePort.sendEmail(email), HttpStatus.CREATED);
     }
 
     @GetMapping("/emails")
-    public ResponseEntity<Page<Email>> getAllEmails(
-            @PageableDefault(page = 0, size = 5, sort = "emailId", direction = Sort.Direction.DESC) Pageable pageable) {
+    public ResponseEntity<Page<Email>> getAllEmails(@PageableDefault(page = 0, size = 5, sort = "emailId", direction = Sort.Direction.DESC) Pageable pageable) {
         PageInfo pageInfo = new PageInfo();
         BeanUtils.copyProperties(pageable, pageInfo);
+
         List<Email> emailList = emailServicePort.findAll(pageInfo);
+
         return new ResponseEntity<>(new PageImpl<Email>(emailList, pageable, emailList.size()), HttpStatus.OK);
     }
 
     @GetMapping("/emails/{emailId}")
     public ResponseEntity<Object> getOneEmail(@PathVariable(value = "emailId") UUID emailId) {
         Optional<Email> emailModelOptional = emailServicePort.findById(emailId);
+
         if (!emailModelOptional.isPresent()) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Email not found.");
         } else {

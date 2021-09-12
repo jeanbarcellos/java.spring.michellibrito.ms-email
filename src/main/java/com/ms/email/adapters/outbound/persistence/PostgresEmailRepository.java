@@ -32,12 +32,14 @@ public class PostgresEmailRepository implements EmailRepositoryPort {
     @Override
     public Email save(Email email) {
         EmailEntity emailEntity = emailRepository.save(modelMapper.map(email, EmailEntity.class));
+
         return modelMapper.map(emailEntity, Email.class);
     }
 
     @Override
     public List<Email> findAll(PageInfo pageInfo) {
         Pageable pageable = PageRequest.of(pageInfo.getPageNumber(), pageInfo.getPageSize());
+
         return emailRepository.findAll(pageable).stream().map(entity -> modelMapper.map(entity, Email.class))
                 .collect(Collectors.toList());
     }
@@ -45,6 +47,7 @@ public class PostgresEmailRepository implements EmailRepositoryPort {
     @Override
     public Optional<Email> findById(UUID emailId) {
         Optional<EmailEntity> emailEntity = emailRepository.findById(emailId);
+
         if (emailEntity.isPresent()) {
             return Optional.of(modelMapper.map(emailEntity.get(), Email.class));
         } else {
